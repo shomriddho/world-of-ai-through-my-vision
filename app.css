@@ -20,10 +20,11 @@ body {
   line-height: 1.5em;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 section {
-  height: 200vh;
+  height: 300vh;
 }
 
 #THE-WHAT {
@@ -285,28 +286,32 @@ a:hover {
 
   100% {
     color: white;
-    padding-top: 40vh;
+    padding-top: 30vh;
   }
 }
 
 .magic-text {
-  width: 60%;
+  width: 80%;
   font: 3em sans-serif;
+
+  word-wrap:break-word;
   color: white;
   margin: auto;
-  padding-top: 40vh;
+  padding-top: 30vh;
   height: 100vh;
   animation: text-jump-magic 2s ease-in-out;
   z-index: 81;
 }
 
 .card-img {
-  width: 300px;
-  height: 300px;
-  float: right;
-  margin: 20px;
-
-  border-radius: 10px;
+  width: 240px;
+  height: 240px;
+  /* float: right; */
+  margin: 5px;
+  display: inline;
+  box-shadow:16px 20px 20px 0px rgb(39 37 37);
+  text-decoration: none;
+  border-radius: 30px;
 }
 
 .text-block {
@@ -317,10 +322,73 @@ a:hover {
   
   border: 7px solid black;
   border-radius: 20px;
-  font: 1.6em sans-serif;
+  font: 1.5em sans-serif;
   font-weight: 900;
   color: #ebebeb;
 }
-.contaner-1{
-  margin: auto;
+ul{
+  list-style-type: none;
+  margin: 0;
+  width: 30%;
+  padding: 17px;
 }
+li{
+  width: 250px;
+}
+.side{
+  float: left;
+  width: 70%;
+  font: 1.4em sans-serif;
+  float: right;
+}
+.contaner-1{
+  margin-top: 19vh;
+  width: 100%;
+  display: flex;
+  position: absolute;
+}
+@media (max-width: 950px) {
+ ul{
+  width: 35%;
+ }
+ .side{
+  width: 65%;
+ }
+}
+@media (max-width: 750px) {
+  ul{
+   width: 45%;
+  }
+  .side{
+   width: 55%;
+  }
+ }
+ @media (max-width: 650px) {
+  ul{
+   width: 45%;
+  }
+  .side{
+   width: 55%;
+  }
+ }
+ @media (max-width: 600px) {
+  ul{
+   width: 50%;
+  }
+  .side{
+   width: 50%;
+  }
+ }
+ @media (max-width: 550px) {
+  .contaner-1{
+   display: block !important;
+  }
+  ul{
+   width: 100%;
+   
+  }
+ 
+  .side{
+   width: 100%;
+  }
+ }
