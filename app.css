@@ -311,7 +311,7 @@ a:hover {
   line-height: 150% !important;
   word-spacing: .09em;
   word-wrap: break-word;
-  border: 3px solid black;
+  /* border: 3px solid black; */
   border-radius: 20px;
   font: 1.5em sans-serif;
   font-weight: 900;
