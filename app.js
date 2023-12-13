@@ -1,37 +1,37 @@
-var util = {
-    mobileMenu() {
-      $("#nav").toggleClass("nav-visible");
-    },
-    windowResize() {
-      if ($(window).width() > 800) {
-        $("#nav").removeClass("nav-visible");
-      }
-    },
-    scrollEvent() {
-      var scrollPosition = $(document).scrollTop();
-      
-      $.each(util.scrollMenuIds, function(i) {
-        var link = util.scrollMenuIds[i],
-            container = $(link).attr("href"),
-            containerOffset = $(container).offset().top,
-            containerHeight = $(container).outerHeight(),
-            containerBottom = containerOffset + containerHeight;
-  
-        if (scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20) {
-          $(link).addClass("active");
-        } else {
-          $(link).removeClass("active");
-        }
-      });
+const util = {
+  mobileMenu() {
+    const nav = document.getElementById('nav');
+    nav.classList.toggle('nav-visible');
+  },
+  windowResize() {
+    const nav = document.getElementById('nav');
+    if (window.innerWidth > 800) {
+      nav.classList.remove('nav-visible');
     }
-  };
-  
-  $(document).ready(function() {
-    
-    util.scrollMenuIds = $("a.nav-link[href]");
-    $("#menu").click(util.mobileMenu);
-    $(window).resize(util.windowResize);
-    $(document).scroll(util.scrollEvent);
-    
-  });
-  
+  },
+  scrollEvent() {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    const scrollMenuIds = Array.from(document.querySelectorAll('a.nav-link[href]'));
+
+    scrollMenuIds.forEach(link => {
+      const container = document.querySelector(link.getAttribute('href'));
+      if (container) {
+        const containerOffset = container.offsetTop;
+        const containerHeight = container.offsetHeight;
+
+        if (scrollPosition >= containerOffset - 20 && scrollPosition < containerOffset + containerHeight - 20) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      }
+    });
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  util.scrollMenuIds = Array.from(document.querySelectorAll('a.nav-link[href]'));
+  document.getElementById('menu').addEventListener('click', util.mobileMenu);
+  window.addEventListener('resize', util.windowResize);
+  document.addEventListener('scroll', util.scrollEvent);
+});
